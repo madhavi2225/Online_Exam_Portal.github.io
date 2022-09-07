@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Terms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+    </script>
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
+    <style>
+        * {
+            margin-left: 20px;
+            margin-right: 20px;
+            /* background-color: #42275a; */
+            font-family: 'Poppins', sans-serif;
+            color: #42275a;
+        }
+
+        .container-fluid {
+            background-color: #f2f2f2;
+            box-sizing: border-box;
+            /* background-color: #42275a; */
+            border: 2px solid #c4c3ca;
+            box-shadow: 13px 13px 20px #55595d, -13px -13px 20px #fff;
+            border-radius: 10px;
+            margin: 5px;
+
+        }
+
+        .terms {
+            color: #42275a;
+            font-size: 20px;
+        }
+
+        .para {
+            margin-left: 50px;
+            color: #42275a;
+            font-size: 17px;
+        }
+
+        .con {
+            font-size: 16px;
+            color: #42275a;
+        }
+
+        .btn {
+            border-radius: 4px;
+            height: 40px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            border: none;
+            background-color: #c4c3ca;
+            color: #42275a;
+        }
+
+        .btn:active,
+        .btn:focus {
+            background-color: rgb(112, 54, 112);
+            color: #c4c3ca;
+        }
+
+        .btn:hover {
+            background-color: rgb(112, 54, 112);
+            color: #c4c3ca;
+        }
+
+        #sid {
+            padding: 3px 3px;
+            padding-left: 15px;
+            height: 30px;
+            width: 43%;
+            font-weight: 500;
+            border: 2px solid #c4c3ca;
+            border-radius: 4px;
+            font-size: 16px;
+            line-height: 20px;
+            letter-spacing: 0.5px;
+            outline: none;
+            color: black;
+            background-color: lightcoral;
+        }
+
+        table,
+        td,
+        tr {
+            width: auto;
+            color: #42275a;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 8px 8px;
+            border: 2px solid #c4c3ca;
+            border-radius: 4px;
+            color: #42275a;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+
+        /* result board css */
+        li {
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        button {
+            background-image: linear-gradient(to right, #f2f2f2, #c4c3ca);
+            /* background: #4292dc; */
+            cursor: pointer;
+            border-radius: 25px;
+            color: black;
+            box-shadow: 0 8px 16px 0 #888888 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        h1 {
+            font-size: 30px;
+            border-style: outset;
+            box-shadow: 3px 5px #888888;
+            padding-left: 50px;
+            padding-right: 50px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .wrapper {
+            padding: 5px;
+            max-width: 960px;
+            width: 95%;
+            margin: 20px auto;
+        }
+
+        header {
+            padding: 0 15px;
+            text-align: center;
+            font-size: 21px;
+        }
+
+        .columns {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            margin: 5px 0;
+        }
+
+        .column {
+            flex: 1;
+            /* border: 2px solid purple; */
+            border: transparent;
+            border-radius: 20px;
+            /* box-shadow: 5px 5px 5px 5px rgb(168, 86, 164); */
+            box-shadow: 5px 5px 5px 5px rgb(155, 157, 161);
+            margin: 2px;
+            padding: 10px;
+            background: paleturquoise;
+        }
+
+        .column:first-child {
+            margin-left: 0;
+            background: #ECD3E6;
+            background-position: fixed;
+            background-repeat: no-repeat;
+        }
+
+        .column:last-child {
+            margin-left: 0;
+            background: white;
+        }
+
+        @media screen and (max-width:980px) {
+            .columns .column {
+                margin-bottom: 5px;
+                flex-basis: 40%;
+            }
+
+            .columns .column:last-child {
+                margin: 10%;
+                flex-basis: 0;
+            }
+        }
+
+        @media screen and (max-width:680px) {
+            .columns .column {
+                margin: 0 0 5px 0;
+                flex-basis: 100%;
+            }
+        }
+    </style>
+    <!-- <script src="terms.js"></script> -->
+</head>
+
+<body>
+
+    <script type="text/javascript" language="javascript">
+        $(document).ready(function () {
+            $('.btn').click(() => {
+                let chec = document.getElementById('p1').checked;
+                console.log(chec);
+                let ExamValue = $('#exam').val();
+
+                let flag = true;
+                if (chec == false) {
+
+                    alert("You must agree to terms and conditions");
+                    flag = false;
+                }
+                else if (ExamValue == '/') {
+
+                    alert("plese select exam type")
+                    flag = false;
+                } else if (ExamValue == 'html') {
+
+                    $('#termsform').attr('action', '/que1');
+                    flag = true;
+                } else if (ExamValue == 'css') {
+
+                    $('#termsform').attr('action', '/cssquiz1');
+                    flag = true;
+                } else if (ExamValue == 'js') {
+
+                    $('#termsform').attr('action', '/javascriptquiz1');
+                    flag = true;
+                }
+                if (flag != false) {
+
+                    alert("Now Exam is Started!!")
+
+                }
+                return flag;
+
+            });
+
+        });  
+    </script>
+
+
+    <h1><u>Terms & Conditions</u></h1>
+
+    <div class="container-fluid">
+
+        <p class="terms">User (or Candidate) must follow these Terms & Conditions : </p>
+
+        <ul class="para">
+
+            <ol type="1">
+                <% for(let i=0; i<terms.length; i++){ %>
+                    <li>
+                        <%= terms[i].terms %>
+                    </li>
+                    <% } %>
+            </ol>
+        </ul>
+
+        <p class="con"><input type="checkbox" id="p1" style="margin-left: 100px; cursor: pointer;">I Have Read All
+            the Instructions and Accept the Terms & Conditions</p>
+        <span id="error"></span>
+    </div><br>
+
+    <table>
+        <tr>
+            <td>
+                <label for="studentid" style="font-size: px; font-weight: bold;">Student ID </label>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="sid"
+                    value="<%= id%>" disabled id="sid"></span><br><br>
+            </td>
+        </tr>
+    </table>
+    <form action="/terms/create" id="termsform" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="studentid" style="font-size: 18px; font-weight: bold;">Interested Exam</label>
+                </td>
+                <td>
+                    <select name="hamojha" id="exam">
+                        <option value="/">Select One Option</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                        <option value="js">JavaScript</option>
+                    </select>
+                </td>
+
+            </tr>
+
+        </table>
+        <span id="error1"></span>
+        <p align="middle"><button class="btn" type="submit">Attempt Exam Now</button></p>
+
+    </form>
+
+    <div class="wrapper">
+        <header>
+            <h1 style="background-image: linear-gradient(to right,#f2f2f2, #c4c3ca);">
+                Previous Result
+            </h1>
+        </header>
+        <br>
+        <section class="columns">
+            <div class="column">
+                <h2 style="color: #c4c3ca;"></h2>
+                <table class="table table-striped table-bordered table-hover"
+                    style="width:90%;margin-left: 30px;margin-right: 30px;font-size: 18px;color: black;">
+                    <thead class="table-active" style="font-size: 18px;">
+                        <th>Subject</th>
+                        <th>Score</th>
+                        <th>correct answer</th>
+                        <th>Incorrect answer</th>
+                        <th>date</th>
+                        <th>Time</th>
+                    </thead>
+                    <tbody>
+                        <%if(examresult !=null){%>
+                            <%if(examresult.scohtml !=null){%>
+                                <!-- <thead class="table-active" style="font-size: 18px;">
+                                    <th>Subject</th>
+                                    <th>Score</th>
+                                    <th>correct answer</th>
+                                    <th>Incorrect answer</th>
+                                    <th>date</th>
+                                    <th>Time</th>
+                                </thead> -->
+                                <tr>
+                                    <td>HTML</td>
+                                    <td>
+                                        <%=examresult.scohtml%>
+                                    </td>
+                                    <td>
+                                        <%=examresult.corhtml%>
+                                    </td>
+                                    <td>
+                                        <%=examresult.incohtml%>
+                                    </td>
+                                    <td>
+                                        <%=examresult.html_date.toDateString()%>
+                                    </td>
+                                    <td>
+                                        <%=examresult.html_time.slice(0,8) %>
+                                    </td>
+                                </tr>
+                                <% } %>
+                                    <%if(examresult.scocss !=null){ %>
+
+                                        <!-- <thead class="table-active" style="font-size: 18px;">
+                                            <th>Subject</th>
+                                            <th>Score</th>
+                                            <th>correct answer</th>
+                                            <th>Incorrect answer</th>
+                                            <th>date</th>
+                                            <th>Time</th>
+                                        </thead> -->
+                                        <tr>
+                                            <td>CSS</td>
+                                            <td>
+                                                <%=examresult.scocss%>
+                                            </td>
+                                            <td>
+                                                <%=examresult.corcss%>
+                                            </td>
+                                            <td>
+                                                <%=examresult.incocss%>
+                                            </td>
+                                            <td>
+                                                <%=examresult.css_date.toDateString()%>
+                                            </td>
+                                            <td>
+                                                <%=examresult.css_time.slice(0,8) %>
+                                            </td>
+                                        </tr>
+                                        <%} %>
+                                            <%if(examresult.scojs !=null){%>
+                                                <!-- <thead class="table-active" style="font-size: 18px;">
+                                                    <th>Subject</th>
+                                                    <th>Score</th>
+                                                    <th>correct answer</th>
+                                                    <th>Incorrect answer</th>
+                                                    <th>date</th>
+                                                    <th>Time</th>
+                                                </thead> -->
+                                                <tr>
+                                                    <td>JavaScript</td>
+                                                    <td>
+                                                        <%=examresult.scojs%>
+                                                    </td>
+                                                    <td>
+                                                        <%=examresult.corjs%>
+                                                    </td>
+                                                    <td>
+                                                        <%=examresult.incojs%>
+                                                    </td>
+                                                    <td>
+                                                        <%=examresult.js_date.toDateString()%>
+                                                    </td>
+                                                    <td>
+                                                        <%=examresult.js_time.slice(0,8) %>
+                                                    </td>
+                                                </tr>
+
+                                                <%}%>
+                                                    <% if(examresult.scojs==null && examresult.scocss==null &&
+                                                        examresult.scohtml==null){%>
+                                                        <tr>
+                                                            Not attempt any exam
+                                                        </tr>
+                                                        <%}%>
+                                                            <%}else{%>
+                                                                <tr>
+                                                                    Not attempt any exam
+                                                                </tr>
+                                                                <%}%>
+                </table>
+            </div>
+
+        </section>
+        <br>
+
+
+
+
+    </div>
+
+</body>
+
+
+</html>

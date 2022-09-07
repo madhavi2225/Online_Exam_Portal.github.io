@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <title>Terms</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
+    <style>
+        
+        * {
+            margin-left: 20px;
+            margin-right: 20px;
+            background-color: #42275a;
+            font-family: 'Poppins', sans-serif;
+            color: #c4c3ca;
+        }
+        .container-fluid {
+          box-sizing: border-box;
+          background-color: #42275a;
+          border: 2px solid #c4c3ca;
+          box-shadow: 5px 5px #e2e2e2;
+          border-radius: 10px;
+          margin: 5px;
+        }
+        .terms {
+          color: #c4c3ca;
+          font-size: 20px;
+        }
+        .para {
+          margin-left: 50px;
+          color: #c4c3ca;
+          font-size: 17px;
+        }
+        .con {
+          font-size: 16px;
+          color: #c4c3ca;
+        }
+        .btn {
+          border-radius: 4px;
+          height: 40px;
+          font-family: 'Poppins', sans-serif;
+          font-size: 15px;
+          font-weight: 600;
+          text-align: center;
+          cursor: pointer;
+          border: none;
+          background-color: #c4c3ca;
+          color: #42275a;
+        }
+        .btn:active,
+        .btn:focus{  
+          background-color: rgb(112, 54, 112);
+          color: #c4c3ca;
+        }
+        .btn:hover{  
+          background-color: rgb(112, 54, 112);
+          color: #c4c3ca;
+        }
+        #sid {
+          padding: 3px 3px;
+          padding-left: 15px;
+          height: 30px;
+          width: 43%;
+          font-weight: 500;
+          border: 2px solid #c4c3ca;
+          border-radius: 4px;
+          font-size: 16px;
+          line-height: 20px;
+          letter-spacing: 0.5px;
+          outline: none;
+          color: #c4c3ca;
+          background-color: #42275a;
+        }
+        table, td, tr {
+          width: auto;
+          color: #c4c3ca;
+          border-radius: 12px;
+        }
+        select {
+          width: 100%;
+          padding: 8px 8px;
+          border: 2px solid #c4c3ca;
+          border-radius: 4px;
+          color: #fff;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+    </style>
+    <script src="terms.js"></script>
+
+  </head>
+  <body>
+
+    <form action="">
+
+        <h1><u>Terms & Conditions</u></h1>
+
+        <div class="container-fluid">
+
+        <p class="terms">User (or Candidate) must follow these Terms & Conditions : </p>
+
+        <ul class="para">
+          <li class="para">Users must check their device and the system must be latest version of Browser.</li><br>
+          <li class="para">Do not close the window, as well as don't try to maximize or minimize the questions page otherwise the page will reload and all your details must be removed from the database.</li><br>
+          <li class="para">Please select your favourite language amongst 3 languages and appear in the exam after selection of particular language.</li><br>
+          <li class="para">There are 25 Questions of all the 3 different languages, Each question carry 1 mark and there is<b style="color: #c4c3ca;">NO NEGATIVE MARKING.</b></li><br>
+          <li class="para">Candidate take 30 minutes to complete all the 25 Questions.</li><br>
+          <li class="para">Any misbehave done by any candidate than that candidate must disqualified from the exam and cannot appear again in the exam.</li><br>
+          <li class="para">Once you complete your attempt, Click on "Submit" button and then check your Result.</li><br>
+          <li class="para">Read the above Instructions and click on "Attempt Exam Now"</li>
+          
+        </ul>
+
+        <p class="con"><input type="checkbox" id="check" style="margin-left: 100px; cursor: pointer;"> I Have Read All the Instructions and Accept the Terms & Conditions</p>
+    
+        </div><br>
+      
+        <table>
+
+          <tr><tr></tr>
+            <td>
+              <label for="studentid" style="font-size: px; font-weight: bold;">Student ID</label>
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <input type="text" name="sid" id="sid"></span><br><br>
+            </td>
+          </tr>
+          </table>
+          <table>
+
+        <tr>
+          <td>
+            <label for="studentid" style="font-size: 18px; font-weight: bold;">Interested Exam</label>
+          </td>
+          <td>
+              <select name="exam" id="exam">
+                  <option value="/">Select One Option</option>
+                  <option value="html">HTML</option>
+                  <option value="css">CSS</option>
+                  <option value="js">JavaScript</option>
+              </select>
+          </td>
+        </tr>
+        </table>
+
+        <p align="middle"><button class="btn">Attempt Exam Now</button></p>
+
+    </form>
+    
+  </body>
+</html>

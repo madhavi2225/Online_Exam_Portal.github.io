@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>ONLINE QUIZ APP</title>
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="../../vendors/feather/feather.css">
+  <link rel="stylesheet" href="../../vendors/ti-icons/css/themify-icons.css">
+  <link rel="stylesheet" href="../../vendors/css/vendor.bundle.base.css">
+  <!-- endinject -->
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="../../vendors/select2/select2.min.css">
+  <link rel="stylesheet" href="../../vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="../../css/vertical-layout-light/style.css">
+  <!-- endinject -->
+  <!-- <link rel="shortcut icon" href="../../images/favicon.png" /> -->
+<style>
+  .close-modal{
+            display: none!important;
+        }
+</style>
+  <!-- datga tabel  -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.11.4/css/jquery.dataTables.min.css">
+</head>
+
+<body>
+   <!-- Remember to include jQuery :) -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+  
+   <!-- jQuery Modal -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+    <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+      <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+        <a class="navbar-brand fw-bold text-uppercase me-auto" href="/admin">Online Quiz App</a>
+      </div>
+      <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
+        <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+          <span class="icon-menu"></span>
+        </button>
+        <ul class="navbar-nav mr-lg-2">
+          <li class="nav-item nav-search d-none d-lg-block">
+            <div class="input-group">
+              <div class="input-group-prepend hover-cursor" id="navbar-search-icon">
+                <span class="input-group-text" id="search">
+                  <i class="icon-search"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav navbar-nav-right">
+          
+          <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+              <i class="bi bi-person-circle fs-30"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+              <a class="dropdown-item">
+                <i class="ti-settings text-primary"></i>
+                Settings
+              </a>
+              <a class="dropdown-item" href='/logout'>
+                <i class="ti-power-off text-primary"></i>
+                Logout
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+      <!-- partial:partials/_settings-panel.html -->
+      <div class="theme-setting-wrapper">
+        <div id="settings-trigger"><i class="ti-settings"></i></div>
+        <div id="theme-settings" class="settings-panel">
+          <p class="settings-heading mt-2">HEADER SKINS</p>
+          <div class="color-tiles mx-0 px-4">
+            <div class="tiles success"></div>
+            <div class="tiles warning"></div>
+            <div class="tiles danger"></div>
+            <div class="tiles info"></div>
+            <div class="tiles dark"></div>
+            <div class="tiles default"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- partial -->
+      <!-- partial:partials/_sidebar.html -->
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link" href="/admin">
+              <i class="icon-grid menu-icon"></i>
+              <span class="menu-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">Add Users</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/addnew">Add Now</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false" aria-controls="form-elements">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">Quiz Questions</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/qhtml">HTML</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/qcss">CSS</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/qjavascript">JAVASCRIPT</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#form-elements1" aria-expanded="false" aria-controls="form-elements">
+              <i class="icon-columns menu-icon"></i>
+              <span class="menu-title">Result</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="form-elements1">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/rhtml">HTML</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/rcss">CSS</a></li>
+              </ul>
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="/rjavascript">JAVASCRIPT</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+              <i class="icon-contract menu-icon"></i>
+              <span class="menu-title">Update T & C</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="icons">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/updateterms">Update Now</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+              <i class="icon-head menu-icon"></i>
+              <span class="menu-title">User Pages</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="auth">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="/login"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/users"> Register </a></li>
+              </ul>
+            </div>
+          </li>
+          
+        </ul>
+      </nav>
+      
+
+      <!-- partial -->
+      <div class="main-panel">
+        <div class="content-wrapper">
+          <div class="row">
+            <div class="col-lg-12 stretch-card">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">CSS Quiz Questions</h4>
+
+                  <a class="btn" href="#ex2" rel="modal:open">
+                    <button class="btn btn-primary rounded-sm" style="float: left;">Add Question</button>
+                  </a>
+                  
+                  <!-- Modal HTML embedded directly into document -->
+                  <form action="/qcss/create" method="post" class="login_form modal" id="ex2" style="display:none; height: 550px;">
+                    <h3><center>Add Question<center></h3>
+                    <br>
+                    <p align="middle"><label>Question: &nbsp&nbsp&nbsp </label><input type="text" id="q" name="q" /></p>
+                    <h6 align="middle" id="errorq"></h6>
+                    <p align="middle"><label>Option A: &nbsp&nbsp&nbsp </label><input type="text" id="a" name="a"  /></p>
+                    <h6 align="middle" id="errora"></h6>
+                    <p align="middle"><label>Option B: &nbsp&nbsp&nbsp </label><input type="text" id="b" name="b" /></p>
+                    <h6 align="middle" id="errorb"></h6>
+                    <p align="middle"><label>Option C: &nbsp&nbsp&nbsp </label><input type="text" id="c" name="c"/></p>
+                    <h6 align="middle" id="errorc"></h6>
+                    <p align="middle"><label>Option D: &nbsp&nbsp&nbsp </label><input type="text" id="d" name="d"/></p>
+                    <h6 align="middle" id="errord"></h6>
+                    <p align="middle"><label>Answer  : </label>&nbsp&nbsp&nbsp&nbsp
+                      <select name="ans" id="ans" style="width: 38%;padding: 3px;">
+                        <option value="a">A</option>
+                        <option value="b">B</option>
+                        <option value="c">C</option>
+                        <option value="d">D</option>
+                    </select></p>
+                    <h6 align="middle" id="errorans"></h6>
+                     
+                    <br>
+                    <p align="middle"><input type="submit" value="Add" id="add" class="btn btn-primary rounded-sm"
+                                              style="text-transform: uppercase"/></p>
+                                              <p align="middle"><input type="reset" value="Reset User"
+                                                class="btn btn-primary rounded-sm" style="text-transform: uppercase" />
+                                        </p>
+                  </form>
+
+                  <div class="table-responsive pt-3">
+                    <table class="table table-bordered" id="myTable">
+                      <!-- <thead>
+                        <tr>
+                          <th>
+                            Sr No.
+                          </th>
+                          <th>
+                            Question
+                          </th>
+                          <th>
+                            Option 1
+                          </th>
+                          <th>
+                            Option 2
+                          </th>
+                          <th>
+                            Option 3
+                          </th>
+                          <th>
+                            Option 4
+                          </th>
+                          <th>
+                            Update
+                          </th>
+                          <th>
+                            Delete
+                          </th>
+                        </tr>
+                      </thead> -->
+                      <tbody>
+                      <%
+                          if(userData.length!=0){
+                          var i=1;
+                          userData.forEach(function(data){
+                      %>
+                     
+                        <tr>
+                          <td>
+                            <%=i ; %>
+                          </td>
+                          <td>                  
+                            <%= data.q %>
+                          </td>
+                          <td>
+                            <%= data.a %>
+                          </td>
+                          <td>
+                            <%= data.b %>
+                          </td>
+                          <td>
+                            <%= data.c %>
+                          </td>
+                          <td>
+                            <%= data.d %>
+                          </td>
+                          <!-- <td>
+                            <button class="btn btn-success rounded-sm">UPDATE</button>
+                          </td> -->
+                          <td>
+                            <a class="btn" href="#ex3<%= data.id %>" rel="modal:open">
+                              <button class="btn btn-success rounded-sm" style="float: left;">Update</button>
+                            </a>
+
+                            <form action="/upcss/<%= data.id %>" method="post" class="login_form modal" id="ex3<%= data.id %>"
+                              style="display:none; height: 500px;">
+                              <h3>
+                                <center>Update Question<center>
+                              </h3>
+                              <br>
+                              <!-- <p align="middle"><label>Sr No   : &nbsp&nbsp&nbsp&nbsp&nbsp </label><input type="text" id="id" name="id"/></p> -->
+                              <p align="middle"><label>Question: &nbsp&nbsp&nbsp </label><input type="text" value="<%= data.q %>" id="upq<%= data.id %>"
+                                  name="q" /> </p> <h6 align="middle" id="uperrorq<%= data.id %>"></h6>
+                              <p align="middle"><label>Option A: &nbsp&nbsp&nbsp </label><input type="text" value="<%= data.a %>" id="upa<%= data.id %>"
+                                  name="a" /></p> <h6 align="middle" id="uperrora<%= data.id %>"></h6>
+                              <p align="middle"><label>Option B: &nbsp&nbsp&nbsp </label><input type="text" value="<%= data.b %>" id="upb<%= data.id %>"
+                                  name="b" /></p> <h6 align="middle" id="uperrorb<%= data.id %>"></h6>
+                              <p align="middle"><label>Option C: &nbsp&nbsp&nbsp </label><input type="text" value="<%= data.c %>" id="upc<%= data.id %>"
+                                  name="c" /></p> <h6 align="middle" id="uperrorc<%= data.id %>"></h6>
+                              <p align="middle"><label>Option D: &nbsp&nbsp&nbsp </label><input type="text" value="<%= data.d %>" id="upd<%= data.id %>"
+                                  name="d" /></p> <h6 align="middle" id="uperrord<%= data.id %>"></h6>
+                              <p align="middle"><label>Answer : </label>&nbsp&nbsp&nbsp&nbsp
+                                <select name="ans" id="upans<%= data.id %>" value="<%= data.ans %>" style="width: 38%;padding: 3px;">
+                                  <option value="a">A</option>
+                                  <option value="b">B</option>
+                                  <option value="c">C</option>
+                                  <option value="d">D</option>
+                                </select>
+                                <h6 align="middle" id="uperrorans<%= data.id %>"></h6>
+                              </p>
+
+                              <br>
+                              <p align="middle"><input type="submit" id="<%= data.id %>"
+                                onclick="return update('upq<%= data.id %>','upa<%= data.id %>','upb<%= data.id %>','upc<%= data.id %>','upd<%= data.id %>','upans<%= data.id %>','uperrorq<%= data.id %>','uperrora<%= data.id %>','uperrorb<%= data.id %>','uperrorc<%= data.id %>','uperrord<%= data.id %>','uperrorans<%= data.id %>')"
+                                value="Update" class="btn btn-success rounded-sm"
+                                  style="text-transform: uppercase" /></p>
+                                  <p align="middle"><input type="reset" value="Reset User"
+                                    class="btn btn-primary rounded-sm" style="text-transform: uppercase" />
+                            </p>
+                            </form>
+                          </td>
+                          <td>
+                            <!-- <button class="btn btn-danger rounded-sm">DELETE</button> -->
+                            <a href="/delqcss/<%= data.q %>" class="btn btn-danger rounded-sm">DELETE</a>
+                          </td>
+                        </tr>
+                        
+                        <%  i++; }) %>
+                <% } else{ %>
+                    <ul>
+                        <td colspan="7">No Data Found</td>
+                    </ul>
+                <% } %>
+              </tbody> 
+                    </table>
+                  </div>
+                </div>
+                <script>
+                  // Update que
+                  function update(upq, upa, upb, upc, upd, upans, errq, erra, errb, errc, errd, errans) {
+                    // console.log("hamojha");
+                    console.log(document.getElementById(`${upq}`).value);
+                    if (document.getElementById(`${upq}`).value == '') {
+                      // console.log("plz enter value");
+                      document.getElementById(`${errq}`).innerHTML = "Plzz Enter value";
+                      return false;
+                    }
+                    else if (document.getElementById(`${upq}`).value.length < 2) {
+                      document.getElementById(`${errq}`).innerHTML = "Plzz Enter min 2";
+                      return false;
+                    }
+                    else {
+                      document.getElementById(`${errq}`).innerHTML = "";
+                    }
+                    console.log(document.getElementById(`${upa}`).value);
+                    if (document.getElementById(`${upa}`).value == '') {
+                      // console.log("plz enter value");
+                      document.getElementById(`${erra}`).innerHTML = "Plzz Enter value";
+                      return false;
+                    }
+                    else if (document.getElementById(`${upa}`).value.length < 2) {
+                      document.getElementById(`${erra}`).innerHTML = "Plzz Enter min 2";
+                      return false;
+                    }
+                    else {
+                      document.getElementById(`${erra}`).innerHTML = "";
+                    }
+                    console.log(document.getElementById(`${upb}`).value);
+                    if (document.getElementById(`${upb}`).value == '') {
+                      // console.log("plz enter value");
+                      document.getElementById(`${errb}`).innerHTML = "Plzz Enter value";
+                      return false;
+                    }
+                    else if (document.getElementById(`${upb}`).value.length < 2) {
+                      document.getElementById(`${errb}`).innerHTML = "Plzz Enter min 2";
+                      return false;
+                    }
+                    else {
+                      document.getElementById(`${errb}`).innerHTML = "";
+                    }
+                    console.log(document.getElementById(`${upc}`).value);
+                    if (document.getElementById(`${upc}`).value == '') {
+                      // console.log("plz enter value");
+                      document.getElementById(`${errc}`).innerHTML = "Plzz Enter value";
+                      return false;
+                    }
+                    else if (document.getElementById(`${upc}`).value.length < 2) {
+                      document.getElementById(`${errc}`).innerHTML = "Plzz Enter min 2";
+                      return false;
+                    }
+                    else {
+                      document.getElementById(`${errc}`).innerHTML = "";
+                    }
+                    console.log(document.getElementById(`${upd}`).value);
+                    if (document.getElementById(`${upd}`).value == '') {
+                      // console.log("plz enter value");
+                      document.getElementById(`${errd}`).innerHTML = "Plzz Enter value";
+                      return false;
+                    }
+                    else if (document.getElementById(`${upd}`).value.length < 2) {
+                      document.getElementById(`${errd}`).innerHTML = "Plzz Enter min 2";
+                      return false;
+                    }
+                    else {
+                      document.getElementById(`${errd}`).innerHTML = "";
+                    }
+                    console.log(document.getElementById(`${upans}`).value);
+                    if (document.getElementById(`${upans}`).value == '') {
+                      // console.log("plz enter value");
+                      document.getElementById(`${errans}`).innerHTML = "Plzz Enter value";
+                      return false;
+                    }
+                    // else if (document.getElementById(`${upans}`).value.length < 2) {
+                    //   document.getElementById(`${errans}`).innerHTML = "Plzz Enter min 2";
+                    //   return false;
+                    // }
+                    else {
+                      document.getElementById(`${errans}`).innerHTML = "";
+                    }
+
+                  }
+                </script>
+                <script>
+                  $(() => {
+
+                    var flag = true;
+                    // Validate name
+                    $('#errorq').css("color", "red")
+                    //  let nameError = true;
+                    $('#q').keyup(function () {
+                      validateq();
+                    });
+
+                    function validateq() {
+                      let nameValue = $('#q').val();
+                      if (nameValue.length == '') {
+                        $('#errorq').show();
+                        $('#errorq').html("enter question");
+                        flag = false;
+                        // nameError = false;
+                        // return false;
+                      } else if ((nameValue.length < 2) ||
+                        (nameValue.length > 100)) {
+                        $('#errorq').show();
+                        $('#errorq').html("Question must have atleast 2 letters and maximum 100 letters");
+                        flag = false;
+                        // nameError = false;
+                        // return false;
+                      } else {
+                        $('#errorq').hide();
+                        flag = true;
+                      }
+                    }
+
+                    // Validate opa
+                    $('#errora').css("color", "red")
+
+                    //let emailError = true;
+                    $('#a').keyup(function () {
+                      validatea();
+                    });
+                    // ([_\-\.0-9a-zA-Z]+)
+                    function validatea() {
+                      let emailValue = $('#a').val();
+                      if (emailValue.length == '') {
+                        $('#errora').show();
+                        $('#errora').html("enter option A");
+                        flag = false;
+                        // emailError = false;
+                        // return false;
+                      }
+                      else {
+                        $('#errora').hide();
+                        flag = true;
+                      }
+                    }
+
+                    // Validate opb
+                    $('#errorb').css("color", "red")
+                    // let usernameError = true;
+                    $('#b').keyup(function () {
+                      validateb();
+                    });
+
+                    function validateb() {
+                      let usernameValue = $('#b').val();
+                      if (usernameValue.length == '') {
+                        $('#errorb').show();
+                        $('#errorb').html("please enter option b");
+                        flag = false;
+                        // usernameError = false;
+                        // return false;
+                      }
+                      else {
+                        $('#errorb').hide();
+                        flag = true;
+                      }
+                    }
+
+
+                    // Validate opc
+
+                    $('#errorc').css("color", "red")
+                    //  let passwordError = true;
+                    $('#c').keyup(function () {
+                      validatec();
+                    });
+
+                    function validatec() {
+                      let passwordValue = $('#c').val();
+                      if (passwordValue.length == '') {
+                        $('#errorc').show();
+                        $('#errorc').html("please enter option c");
+                        flag = false;
+                        // passwordError = false;
+                        // return false;
+                      }
+                      else {
+                        $('#errorc').hide();
+                        flag = true;
+                      }
+                    }
+                    // Validate opd
+
+                    $('#errord').css("color", "red")
+                    //  let passwordError = true;
+                    $('#d').keyup(function () {
+                      validated();
+                    });
+
+                    function validated() {
+                      let passValue = $('#d').val();
+                      if (passValue.length == '') {
+                        $('#errord').show();
+                        $('#errord').html("please enter option d");
+                        flag = false;
+                        // passwordError = false;
+                        // return false;
+                      }
+                      else {
+                        $('#errord').hide();
+                        flag = true;
+                      }
+                    }
+                    // Validate ans
+
+                    $('#errorans').css("color", "red")
+                    // let qualificationError = true;
+                    $('#ans').keyup(function () {
+                      validateans();
+                    });
+
+                    function validateans() {
+                      let qualificationValue = $('#ans').val();
+                      if (qualificationValue == '/') {
+                        $('#errorans').show();
+                        $('#errorans').html("please select answer");
+                        flag = false;
+                        // qualificationError = false;
+                        // return false;
+                      } else {
+                        $('#errorans').hide();
+                      }
+                    }
+
+                    $("#add").click(() => {
+                      validateq();
+                      validatea();
+                      validateb();
+                      validatec();
+                      validated();
+                      validateans();
+
+                      return flag;
+
+                    });
+                  });
+                </script>
+              </div>
+          </div>
+        </div>
+      </div>        <footer class="footer">
+          <div class="d-sm-flex justify-content-center justify-content-sm-between">
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2022. Online Quiz Application. All rights reserved.</span>
+          </div>
+        </footer>
+        <!-- partial -->
+      </div>
+      <!-- main-panel ends -->
+    </div>
+    <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+  <!-- plugins:js -->
+  <script src="../../vendors/js/vendor.bundle.base.js"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <script src="../../vendors/typeahead.js/typeahead.bundle.min.js"></script>
+  <script src="../../vendors/select2/select2.min.js"></script>
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="../../js/off-canvas.js"></script>
+  <script src="../../js/hoverable-collapse.js"></script>
+  <script src="../../js/template.js"></script>
+  <script src="../../js/settings.js"></script>
+  <script src="../../js/todolist.js"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="../../js/file-upload.js"></script>
+  <script src="../../js/typeahead.js"></script>
+  <script src="../../js/select2.js"></script>
+  <!-- End custom js for this page-->
+
+  
+  <!-- data tabel script -->
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://cdn.datatables.net/1.11.4/js/jquery.dataTables.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('#myTable').DataTable({
+
+        columns: [{
+          title: "Sr No."
+        }, {
+          title: "Question"
+        }, {
+          title: " Option 1"
+        }, {
+          title: " Option 2."
+        }, {
+          title: " Option 3"
+        }, {
+          title: " Option 4"
+        }, {
+          title: "Update"
+        }, {
+          title: "Delete"
+        }]
+      });
+
+
+    });
+  </script>
+</body>
+
+</html>
